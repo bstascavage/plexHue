@@ -9,7 +9,17 @@ class Hue
 
     def initialize(config)
         $config = config
-        self.class.base_uri "http://#{$config['hue']['hub_ip']}/api/newdeveloper//"
+        self.class.base_uri "http://#{$config['hue']['hub_ip']}//"
+
+        if self.class.get("api/plexHueUser")[0].keys[0] == 'error'
+            response = self.class.post("api", :body => "{\"devicetype\":\"plexHue\",\"username\":\"plexHueUser\"}")
+
+            if response[0].keys[0] == 'error'
+                $logger.error("User not created.  Rerun and press link button")
+                exit
+            end
+        end
+        self.class.base_uri "http://#{$config['hue']['hub_ip']}/api/plexHueUser//"
     end
 
     format :json
