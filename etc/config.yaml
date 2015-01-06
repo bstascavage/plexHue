@@ -7,3 +7,4 @@ hue:
    starttransitiontime: 30
    pausedtransitiontime: 30
    stoptransitiontime: 100
+   lights: ["Bedroom-lamp"]

@@ -21,4 +21,36 @@ class Hue
         response = self.class.put(query, :body => body )
         return response
     end
+
+    def createGroup
+        lights = self.class.get("lights")
+        lightsPlex = []
+
+        lights.each do | light |
+            if $config['hue']['lights'].include? light[1]['name']
+                lightsPlex.push(light[0])
+            end
+        end
+        self.class.post("groups", :body => "{\"lights\": #{lightsPlex}, \"name\": \"plex\"}")
+    end
+
+    def deleteGroup
+        groups = self.class.get("groups")
+
+        groups.each do | group |
+            if group[1]['name'] == 'plex'
+                self.class.delete("groups/#{group[0]}")
+            end
+        end
+    end
+
+    def getPlexGroup
+        groups = self.class.get("groups")
+
+        groups.each do | group |
+            if group[1]['name'] == 'plex'
+                return group[0]
+            end
+        end
+    end
 end
