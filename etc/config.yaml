@@ -1,0 +1,5 @@
+---
+plex:
+   server: localhost
+hue:
+   hub_ip: 192.168.1.12
