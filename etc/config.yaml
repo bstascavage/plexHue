@@ -1,5 +1,9 @@
 ---
 plex:
    server: localhost
+   machineIdentifier: 28fcd963-ac9c-477e-96ad-c7b68320607b 
 hue:
    hub_ip: 192.168.1.12
+   starttransitiontime: 30
+   pausedtransitiontime: 30
+   stoptransitiontime: 100

@@ -7,7 +7,7 @@ class Hue
     include HTTParty
 
     def initialize(config)
-        self.class.base_uri "http://#{$config['hue']['hub_ip']}//"
+        self.class.base_uri "http://#{$config['hue']['hub_ip']}/api/newdeveloper//"
     end
 
     format :json
