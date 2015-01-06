@@ -2,25 +2,17 @@
 require 'rubygems'
 require 'json'
 require 'httparty'
+require 'pp'
 
 class Hue
     include HTTParty
 
     def initialize(config)
+        $config = config
         self.class.base_uri "http://#{$config['hue']['hub_ip']}/api/newdeveloper//"
     end
 
     format :json
-
-    def get(query, args=nil)
-        response = self.class.get(query, :verify => false)
-        return response
-    end
-
-    def put(query, body)
-        response = self.class.put(query, :body => body )
-        return response
-    end
 
     def createGroup
         lights = self.class.get("lights")
@@ -51,6 +43,16 @@ class Hue
             if group[1]['name'] == 'plex'
                 return group[0]
             end
+        end
+    end
+
+    def transition(state)
+        if state == 'playing'
+            self.class.put("groups/#{self.getPlexGroup}/action", :body => "{\"on\":false, \"transitiontime\":#{$config['hue']['starttransitiontime']}}")
+        elsif state == 'paused'
+            self.class.put("groups/#{self.getPlexGroup}/action", :body => "{\"on\":true, \"bri\":128, \"transitiontime\":#{$config['hue']['pausedtransitiontime']}}")
+        elsif state == 'stopped'
+            self.class.put("groups/#{self.getPlexGroup}/action", :body => "{\"on\":true, \"bri\":255, \"transitiontime\":#{$config['hue']['stoptransitiontime']}}")
         end
     end
 end

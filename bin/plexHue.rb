@@ -69,7 +69,7 @@ class PlexHue
                         if $state != 'playing'
                             $state = 'playing'
                             $logger.info("Video has started.  Dimming lights")
-                            hue.put("groups/#{hue.getPlexGroup}/action", "{\"on\":false, \"transitiontime\":#{$config['hue']['starttransitiontime']}}")
+                            hue.transition($state)
                         end
                     elsif client['Player']['state'] == 'paused'
                         if $pauseTime == 0
@@ -82,7 +82,7 @@ class PlexHue
                             if $state != 'paused'
                                 $state = 'paused'
                                 $logger.info("Video is paused.  Restoring lights")
-                                hue.put("groups/#{hue.getPlexGroup}/action", "{\"on\":true, \"bri\":128, \"transitiontime\":#{$config['hue']['pausedtransitiontime']}}")
+                                hue.transition($state)
                             end
                         end
                      end
@@ -97,7 +97,7 @@ class PlexHue
                             if $state != 'playing'
                                 $state = 'playing'
                                 $logger.info("Video has started.  Dimming lights")
-                                hue.put("groups/#{hue.getPlexGroup}/action", "{\"on\":false, \"transitiontime\":#{$config['hue']['starttransitiontime']}}")
+                                hue.transition($state)
                             end
                         elsif client['Player']['state'] == 'paused'
                             if $pauseTime == 0
@@ -110,7 +110,7 @@ class PlexHue
                                 if $state != 'paused'
                                     $state = 'paused'
                                     $logger.info("Video is paused.  Restoring lights")
-                                    hue.put("groups/#{hue.getPlexGroup}/action", "{\"on\":true, \"bri\":128, \"transitiontime\":#{$config['hue']['pausedtransitiontime']}}")
+                                    hue.transition($state)
                                 end
                             end
                         end
@@ -120,9 +120,10 @@ class PlexHue
             if (!isPlaying && $state != 'stopped')
                 $state = 'stopped'
                 isPlaying = false
+
                 sleep 2
                 $logger.info("Video is stopped.  Turning lights back on")
-                hue.put("groups/#{hue.getPlexGroup}/action", "{\"on\":true, \"bri\":255, \"transitiontime\":#{$config['hue']['stoptransitiontime']}}")
+                hue.transition($state)
             end
         end
     end
