@@ -8,6 +8,18 @@ class Hue
 
     def initialize(config)
         $config = config
+
+        #Adding default values
+        if $config['hue']['starttransitiontime'].nil?
+            $config['hue']['starttransitiontime'] = 30
+        end
+        if $config['hue']['pausedtransitiontime'].nil?
+            $config['hue']['pausedtransitiontime'] = 30
+        end
+        if $config['hue']['stoptransitiontime'].nil?
+            $config['hue']['stoptransitiontime'] = 30
+        end
+
         self.class.base_uri "http://#{$config['hue']['hub_ip']}//"
 
         if !self.class.get("api/plexHueUser")[0].nil?
