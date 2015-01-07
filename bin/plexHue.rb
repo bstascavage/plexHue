@@ -125,6 +125,8 @@ class PlexHue
                 $logger.info("Video is stopped.  Turning lights back on")
                 hue.transition($state)
             end
+            
+            sleep 0.2
         end
     end
 end
