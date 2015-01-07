@@ -6,7 +6,9 @@ Program to integrate Plex with the Philips Hue.
 ## Introduction
 This program is meant to sync your Philip Hue lightbulbs with your Plex playback.  It does the following:
 1.  Slowly dims your lights in till they are off, whenever a movie starts.
+
 2.  Brings your lights to half-brightness when a movie is paused.
+
 3.  Slowly brightens your lights when a movie is stopped, in till it is at full brightness.
 
 Video: https://www.youtube.com/watch?v=W3FJ6tHxiDg  
@@ -47,7 +49,7 @@ Video: https://www.youtube.com/watch?v=W3FJ6tHxiDg
 `machineIdentifier` - Unique identifier of your Plex client.  Required.
 
 ##### hue
-`hub_ip` - IP addres of your Philips Hue Hub.  You can get this bu visiting http://www.meethue.com/api/nupnp while on the same network as your hub.  Required.
+`hub_ip` - IP addres of your Philips Hue Hub.  You can get this by visiting http://www.meethue.com/api/nupnp while on the same network as your hub.  Required.
 
 `starttransitiontime` - How long it takes to dim the lights when starting a video, in multiples of 100ms.  Optional.
 
