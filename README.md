@@ -56,7 +56,7 @@ Video: https://www.youtube.com/watch?v=W3FJ6tHxiDg
 
 `stoptransitiontime` - How long it takes to brighten the lights when stopping a video, in multiples of 100ms.  Defaults to 3 seconds.  Optional.
 
-`lights` - Array of names of the lights you want to use, in the format: ["light1", "light2", "lirght3"].  Required.
+`lights` - Array of names of the lights you want to use, in the format: ["light1", "light2", "light3"].  Required.
 
 
 ## Notes
