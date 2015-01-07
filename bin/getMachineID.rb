@@ -35,6 +35,7 @@ class MachineID
 
         if sessions['size'].to_i == 1
             session = sessions['Video']
+            print "Device: #{session['Player']['title']}\n    user: #{session['User']['title']}\n    machineIdentifier: #{session['Player']['machineIdentifier']}\n\n"
         elsif sessions['size'].to_i > 1
             sessions['Video'].each do | session |
                 print "Device: #{session['Player']['title']}\n    user: #{session['User']['title']}\n    machineIdentifier: #{session['Player']['machineIdentifier']}\n\n"
