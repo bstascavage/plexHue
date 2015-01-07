@@ -43,14 +43,20 @@ Video: https://www.youtube.com/watch?v=W3FJ6tHxiDg
 
 ##### plex
 `server` - IP address of your Plex server.  Defaults to `localhost`.  Optional.
+
 `machineIdentifier` - Unique identifier of your Plex client.  Required.
 
 ##### hue
 `hub_ip` - IP addres of your Philips Hue Hub.  You can get this bu visiting http://www.meethue.com/api/nupnp while on the same network as your hub.  Required.
+
 `starttransitiontime` - How long it takes to dim the lights when starting a video, in multiples of 100ms.  Optional.
+
 `pausedtransitiontime` - How long it takes to brighten the lights when pausing a video, in multiples of 100ms.  Optional.
+
 `stoptransitiontime` - How long it takes to brighten the lights when stopping a video, in multiples of 100ms.  Optional.
+
 `lights` - Array of names of the lights you want to use, in the format: ["light1", "light2", "lirght3"].  Required.
+
 
 ## Notes
 1.  This software is still in alpha.  There are plenty of features and options that I plan on implementing, plus more streamlined support for different OSes.  Bug fixes take priority over features.  If you have any issues, or anything you'd like added, please open a Github issue.
