@@ -5,10 +5,9 @@ Program to integrate Plex with the Philips Hue.
 
 ## Introduction
 This program is meant to sync your Philip Hue lightbulbs with your Plex playback.  It does the following:
+
 1.  Slowly dims your lights in till they are off, whenever a movie starts.
-
 2.  Brings your lights to half-brightness when a movie is paused.
-
 3.  Slowly brightens your lights when a movie is stopped, in till it is at full brightness.
 
 Video: https://www.youtube.com/watch?v=W3FJ6tHxiDg  
