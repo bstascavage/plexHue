@@ -2,7 +2,6 @@
 require 'rubygems'
 require 'json'
 require 'httparty'
-require 'pp'
 
 class Hue
     include HTTParty
@@ -12,13 +11,14 @@ class Hue
         self.class.base_uri "http://#{$config['hue']['hub_ip']}//"
 
         if !self.class.get("api/plexHueUser")[0].nil?
-            pp self.class.get("api/plexHueUser")[0].keys[0].nil?
             if self.class.get("api/plexHueUser")[0].keys[0] == 'error'
                 response = self.class.post("api", :body => "{\"devicetype\":\"plexHue\",\"username\":\"plexHueUser\"}")
 
                 if response[0].keys[0] == 'error'
                     $logger.error("User not created.  Rerun and press link button")
                     exit
+                else
+                    $logger.info("User created.  Program is paired with hub")
                 end
             end
         end
