@@ -50,11 +50,11 @@ Video: https://www.youtube.com/watch?v=W3FJ6tHxiDg
 ##### hue
 `hub_ip` - IP addres of your Philips Hue Hub.  You can get this by visiting http://www.meethue.com/api/nupnp while on the same network as your hub.  Required.
 
-`starttransitiontime` - How long it takes to dim the lights when starting a video, in multiples of 100ms.  Optional.
+`starttransitiontime` - How long it takes to dim the lights when starting a video, in multiples of 100ms.  Defaults to 3 seconds.  Optional.
 
-`pausedtransitiontime` - How long it takes to brighten the lights when pausing a video, in multiples of 100ms.  Optional.
+`pausedtransitiontime` - How long it takes to brighten the lights when pausing a video, in multiples of 100ms.  Defaults to 3 seconds.  Optional.
 
-`stoptransitiontime` - How long it takes to brighten the lights when stopping a video, in multiples of 100ms.  Optional.
+`stoptransitiontime` - How long it takes to brighten the lights when stopping a video, in multiples of 100ms.  Defaults to 3 seconds.  Optional.
 
 `lights` - Array of names of the lights you want to use, in the format: ["light1", "light2", "lirght3"].  Required.
 
