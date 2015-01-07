@@ -45,7 +45,7 @@ Video: https://www.youtube.com/watch?v=W3FJ6tHxiDg
 ##### plex
 `server` - IP address of your Plex server.  Defaults to `localhost`.  Optional.
 
-`machineIdentifier` - Unique identifier of your Plex client.  Required.
+`machineIdentifier` - Unique identifier of your Plex client.  You can find this by starting up a video on your device and then running `bin/getMachineID.rb` and finding your device in the output.  Required.
 
 ##### hue
 `hub_ip` - IP addres of your Philips Hue Hub.  You can get this by visiting http://www.meethue.com/api/nupnp while on the same network as your hub.  Required.
