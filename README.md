@@ -47,6 +47,8 @@ Video: https://www.youtube.com/watch?v=W3FJ6tHxiDg
 
 `machineIdentifier` - Unique identifier of your Plex client.  You can find this by starting up a video on your device and then running `bin/getMachineID.rb` and finding your device in the output.  Required.
 
+`api_key` - Your Plex API key.  This can be found by searching for your device here (it is the 'token' field): https://plex.tv/devices.xml.  Required.
+
 ##### hue
 `hub_ip` - IP addres of your Philips Hue Hub.  You can get this by visiting http://www.meethue.com/api/nupnp while on the same network as your hub.  Required.
 
