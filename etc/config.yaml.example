@@ -1,0 +1,11 @@
+---
+plex:
+   server: localhost
+   machineIdentifier: <machine_id>
+   api_key: <api_key>
+hue:
+   hub_ip: <hue_bridge_ip>
+   starttransitiontime: 30
+   pausedtransitiontime: 30
+   stoptransitiontime: 100
+   lights: ["Light 1", "Light 2"]
