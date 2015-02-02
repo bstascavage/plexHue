@@ -41,7 +41,7 @@ class MachineID
                 print "Device: #{session['Player']['title']}\n    user: #{session['User']['title']}\n    machineIdentifier: #{session['Player']['machineIdentifier']}\n\n"
             end
         else
-            pp "No sessions found.  Please double-check your config file and make sure your device is playing"
+            print "No sessions found.  Please double-check your config file and make sure your device is playing\n"
         end
     end
 end
