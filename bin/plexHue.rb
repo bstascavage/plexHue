@@ -61,6 +61,10 @@ class PlexHue
 
             if nowPlaying['size'].to_i == 1
                 client = nowPlaying['Video']
+                if client['Player']['machineIdentifier'].nil?
+                    client['Player']['machineIdentifier'] = ''
+                end
+
                 if client['Player']['machineIdentifier'] == $config['plex']['machineIdentifier']
                     if client['Player']['state'] == 'playing'
                         $pauseTime = 0
@@ -89,6 +93,10 @@ class PlexHue
                  end
             elsif nowPlaying['size'].to_i > 1
                 nowPlaying['Video'].each do | client | 
+                    if client['Player']['machineIdentifier'].nil?
+                        client['Player']['machineIdentifier'] = ''
+                    end
+
                     if client['Player']['machineIdentifier'] == $config['plex']['machineIdentifier']
                         if client['Player']['state'] == 'playing'
                             $pauseTime = 0
