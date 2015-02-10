@@ -61,7 +61,7 @@ class PlexHue
 
             if nowPlaying['size'].to_i == 1
                 client = nowPlaying['Video']
-                if client['Player']['machineIdentifier'].nil?
+                if client['Player']['machineIdentifier'].empty?
                     client['Player']['machineIdentifier'] = ''
                 end
 
@@ -93,7 +93,7 @@ class PlexHue
                  end
             elsif nowPlaying['size'].to_i > 1
                 nowPlaying['Video'].each do | client | 
-                    if client['Player']['machineIdentifier'].nil?
+                    if client['Player']['machineIdentifier'].empty?
                         client['Player']['machineIdentifier'] = ''
                     end
 
