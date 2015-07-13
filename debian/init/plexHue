@@ -1,4 +1,4 @@
-# INIT INFO
+### BEGIN INIT INFO
 # Provides:          plexHue
 # Required-Start:    $remote_fs $syslog
 # Required-Stop:     $remote_fs $syslog
