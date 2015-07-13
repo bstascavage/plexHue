@@ -11,7 +11,7 @@ require_relative 'plex'
 require_relative 'hue'
 
 class PlexHue
- $options = {
+    $options = {
         :verbose         => false
     }
 
@@ -55,8 +55,14 @@ class PlexHue
         hue.deleteGroup
         hue.createGroup
 
-        while    
-            nowPlaying = plex.get('status/sessions')['MediaContainer']
+        while 
+	    begin   
+                nowPlaying = plex.get('status/sessions')['MediaContainer']
+            rescue
+		$logger.error("Cannot connect to the Plex Server.  Will wait 30 seconds and try again.")
+		sleep 30
+		next
+	    end
             isPlaying = false
 
             if nowPlaying['size'].to_i == 1
@@ -129,12 +135,12 @@ class PlexHue
                 $state = 'stopped'
                 isPlaying = false
 
-                sleep 2
+                sleep 1
                 $logger.info("Video is stopped.  Turning lights back on")
                 hue.transition($state)
             end
             
-            sleep 0.2
+            sleep 1
         end
     end
 end
