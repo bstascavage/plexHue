@@ -18,25 +18,26 @@ Video: https://www.youtube.com/watch?v=W3FJ6tHxiDg
 3.  A PlexPass membership (Sorry about this, but the API to see when something is played is a PlexPass feature :( )
 
 ## Installation (Debian/Ubuntu)
-1.  Clone this repo on your server:
+1.  Change to the `/opt` directory.
+2.  Clone this repo on your server:
 
     `git clone https://github.com/bstascavage/plexHue.git`
-2.  Change to the plexHue directory
-3.  Install the blunder gem (http://bundler.io/)
+3.  Change to the plexHue directory
+4.  Install the blunder gem (http://bundler.io/)
 
     `gem install bundler`
-4.  Install the gem dependecies:
+5.  Install the gem dependecies:
 
     `bundle install`
-5.  Copy the init script to your init.d directory:
+6.  Copy the init script to your init.d directory:
 
     `cp debian/init/plexHue /etc/init.d/plexHue`
-6.  Setup your config file (see below for details on parameters)
-7.  Press the HOME button on your Philips Hue Hub
-8.  Start the plexHue service
+7.  Setup your config file (see below for details on parameters)
+8.  Press the HOME button on your Philips Hue Hub
+9.  Start the plexHue service
 
     `service plexHue start`
-9.  Check the plexHue log to ensure that the program paired with your hub:
+10.  Check the plexHue log to ensure that the program paired with your hub:
 
     `tail -f plexHue.log`
     
